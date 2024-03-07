@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prescriptionParent" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="20" bottomMargin="0" uuid="2abc81d8-70d0-4719-b1f6-226cb09b4a9a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="HEADER_DATASOURCE" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="PURCHASE_ITEMS_DATASOURCE" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="PURCHASE_DETAILS_DATASOURCE" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="55" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="45" uuid="c524837e-ef67-4b3c-9c6c-f66cc3906332"/>
+				<dataSourceExpression><![CDATA[$P{HEADER_DATASOURCE}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["PurchaseHeader.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="60">
+			<subreport>
+				<reportElement x="10" y="0" width="200" height="47" uuid="f1175edc-8c80-4452-8940-daf80b94a1bd"/>
+				<dataSourceExpression><![CDATA[$P{PURCHASE_ITEMS_DATASOURCE}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["PurchaseItems.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="55">
+			<subreport>
+				<reportElement x="10" y="10" width="200" height="31" uuid="6fe8c76d-e160-4a4d-a35f-7fd3453beac5"/>
+				<dataSourceExpression><![CDATA[$P{PURCHASE_DETAILS_DATASOURCE}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["PurchaseDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="400" y="20" width="80" height="30" uuid="f977eb71-c738-49df-8e15-7c973380135f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="20" width="70" height="30" uuid="58cf9146-8fe0-4671-b9c6-80698d4b77ce"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
